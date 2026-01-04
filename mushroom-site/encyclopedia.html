@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Енциклопедія грибів</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Додатковий стиль для карток в енциклопедії */
+        .encyclopedia-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        .encyclopedia-card {
+            padding: 0; /* Скидаємо відступи щоб картка була щільною */
+            overflow: hidden;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .encyclopedia-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+               <div class="header-container">
+                     <nav>
+                        <div class="logo">
+                            <a href="index.html" class="logo">MycoRebel</a>
+                        </div>
+                        <!-- решта меню -->
+                    </nav>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="life.html">Життя грибів</a></li>
+                    <li><a href="growing.html">Вирощування</a></li>
+                    <li><a href="encyclopedia.html" class="active">Енциклопедія</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 class="section-title">Каталог грибів</h2>
+            
+            <div class="grid">
+                <!-- Гриб 1 -->
+                <div class="encyclopedia-card">
+                    <img src="img/encyclopedia/Agaricus-Stuttgartx7.jpg" alt="Печериця">
+                    <div class="encyclopedia-content">
+                        <div>
+                            <span class="tag edible">Їстівний</span>
+                            <h3>Печериця звичайна</h3>
+                            <p>Найпопулярніший гриб у кулінарії. Росте на родючих ґрунтах, часто поруч з людським житлом.</p>
+                        </div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">Детальніше</a>
+                    </div>
+                </div>
+
+                <!-- Гриб 2 -->
+                <div class="encyclopedia-card">
+                    <img src="img/encyclopedia/amanita_phalloides_1.jpg" alt="Бліда поганка">
+                    <div class="encyclopedia-content">
+                        <div>
+                            <span class="tag poisonous">Отруйний</span>
+                            <h3>Бліда поганка</h3>
+                            <p>Найнебезпечніший гриб України. Містить смертельні токсини, що не руйнуються при теплова обробці.</p>
+                        </div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">Детальніше</a>
+                    </div>
+                </div>
+
+                <!-- Гриб 3 -->
+                <div class="encyclopedia-card">
+                    <img src="img/encyclopedia/Cantharellus_cibarius.jpg" alt="Лисичка">
+                    <div class="encyclopedia-content">
+                        <div>
+                            <span class="tag edible">Їстівний</span>
+                            <h3>Лисичка справжня</h3>
+                            <p>Яскраво-жовтий гриб з приємним ароматом. Рідко буває червивим завдяки природному хітину.</p>
+                        </div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">Детальніше</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ГрибоВід. Всі права захищено.</p>
+        </div>
+        <!-- Соціальні мережі -->
+<div class="social-links">
+    <!-- Замініть # на ваші реальні посилання на канали -->
+    <a href="https://youtube.com" target="_blank" class="social-link">📺 YouTube</a>
+    <a href="https://tiktok.com" target="_blank" class="social-link">🎵 TikTok</a>
+    <a href="https://instagram.com" target="_blank" class="social-link">📸 Instagram</a>
+</div>
+    </footer>
+
+</body>
+</html>

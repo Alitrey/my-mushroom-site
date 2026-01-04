@@ -1,0 +1,283 @@
+/* --- style.css --- */
+:root {
+    --primary-color: #2d6a4f; /* Лісний зелений */
+    --accent-color: #d8f3dc;
+    --text-color: #1b4332;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --brown: #bc6c25;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Контейнер */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Шапка */
+/* --- ШАПКА (HEADER) НІЧНЕ НЕБО --- */
+header {
+    /* 1. Глибокий космічний градієнт (від чорного до темно-синього) */
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    color: white;
+    padding: 1rem 0;
+    
+    /* 2. Додаємо фіксацію, щоб шапка завжди була зверху */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6); /* Темна тінь для глибини */
+    
+    /* 3. Важливо для розміщення зірочок всередині */
+    position: relative;
+    overflow: hidden; 
+}
+
+/* --- ДОДАВАННЯ ЗІРОЧОК --- */
+/* Цей код створює маленькі білі точки на фоні */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Створюємо зірки через радіальні градієнти (крапки) */
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+    
+    background-repeat: repeat;
+    background-size: 200px 200px; /* Розмір фрагмента зірочок */
+    opacity: 0.6; /* Зірки не яскраві, щоб не заважали читати */
+    pointer-events: none; /* Щоб зірки не заважали натискати на кнопки */
+    z-index: -1; /* Зміщуємо зірки на задній план */
+}
+
+/* --- СТИЛЬ ЛОГОТИПА ДЛЯ НІЧНОГО НЕБА --- */
+.logo {
+    /* Підключаємо наш шрифт, а якщо не завантажився — беремо стандартний з засічками */
+    font-family: 'Cinzel', 'Times New Roman', serif; 
+    
+    font-size: 2rem;           /* Розмір логотипу (зробіть менше, якщо він лізе на новий рядок) */
+    font-weight: 700;          /* Жирність */
+    text-transform: uppercase; /* Робить всі літери великими (виглядає монументально) */
+    letter-spacing: 2px;       /* Розставляє літери трохи далі одна від одної для елегантності */
+    
+    /* Градієнт для тексту (від білого до блакитного) */
+    background: linear-gradient(to bottom, #ffffff 0%, #a5f3fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Робить текст прозорим, щоб просвічував градієнт */
+    
+    /* Ефект світіння (Glow) — головна фішка для нічного неба */
+    filter: drop-shadow(0 0 8px rgba(165, 243, 252, 0.6));
+    
+    cursor: pointer; /* Курсор змінюється при наведенні */
+}
+
+/* Мікро-анімація при наведенні мишкою */
+.logo:hover {
+    filter: drop-shadow(0 0 15px rgba(165, 243, 252, 0.9)); /* Світіння посилюється */
+    transform: scale(1.05); /* Легко збільшується */
+    transition: all 0.3s ease; /* Плавність анімації */
+}
+
+/* --- НАВІГАЦІЯ (NAV) --- */
+nav {
+    display: flex;
+    align-items: center; /* Вирівнює все по вертикалі по центру */
+    /* justify-content: space-between; <-- Цей рядок краще прибрати або закоментувати */
+}
+
+/* --- ЛОГО (LOGO) --- */
+.logo {
+    margin-left: 20px;
+    margin-right: 20px; /* Невеликий відступ від логотипа до меню */
+    flex-shrink: 0; /* Забороняє логотипу стискатися */
+}
+
+
+.logo img {
+    height: 140px; /* Задаємо бажану висоту логотипу. Змініть це число, якщо він замалий або завеликий */
+    width: auto;  /* Ширина підстроюється автоматично, щоб логотип не розтягнувся */
+    display: block; /* Прибирає зайві відступи знизу картинки */
+}
+
+/* --- МЕНЮ (NAV LINKS) --- */
+.nav-links {
+    /* 1. Ця магічна властивість змушує меню зайняти весь вільний простір */
+    flex-grow: 1; 
+    
+    /* 2. Центруємо пункти меню всередині зайнятого простору */
+    justify-content: center; 
+    
+    display: flex;
+    gap: 20px; /* Відстань між пунктами */
+}
+
+/* Основний контент */
+main { flex: 1; }
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/hero/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 40px;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+
+/* Стилі для карточок */
+.section-title { text-align: center; font-size: 2.2rem; color: var(--primary-color); margin-bottom: 40px; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.card h3 { color: var(--primary-color); margin: 15px 0; }
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    background-color: var(--brown);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+.btn:hover { background-color: #9c4e1c; }
+
+/* Теги для енциклопедії */
+.tag { padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+.tag.edible { background-color: #d4edda; color: #155724; }
+.tag.poisonous { background-color: #f8d7da; color: #721c24; }
+
+/* Підвал */
+/* --- ПІДВАЛ: ГЛИБИНИ ЗЕМЛІ (МІЦЕЛІЙ) --- */
+footer {
+    /* 1. Глибинний градієнт (від темної глини до чорного) */
+    background: linear-gradient(to bottom, #2c241b 0%, #1a1612 100%);
+    
+    color: #d7ccc8; /* Світло-бежевий текст, як сухе листя */
+    text-align: center;
+    padding: 60px 0 20px 0;
+    margin-top: auto;
+    
+    /* Боротьба з фоном (щоб міцелій був всередині) */
+    position: relative;
+    overflow: hidden;
+    
+    /* Верхня межа, ніби зріз ґрунту */
+    border-top: 4px solid #5d4037; 
+}
+
+/* --- СИМУЛЯЦІЯ МІЦЕЛІЮ (Нитки та спори) --- */
+/* Цей код малює тонку сітку і точки, наче підземна мережа */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Малюємо лінії (гіфи) та точки (спори) */
+    background-image: 
+        /* Тонкі горизонтальні лінії */
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        /* Тонкі вертикальні лінії */
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px),
+        /* Випадкові точки (спори) */
+        radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    
+    /* Розмір текстури */
+    background-size: 40px 40px, 40px 40px, 20px 20px;
+    
+    /* Вирівнювання сітки, щоб вона виглядала природно */
+    background-position: 0 0, 10px 10px, 5px 5px;
+    
+    opacity: 0.7;
+    pointer-events: none; /* Щоб не заважало натискати на посилання */
+    z-index: 1; /* На фоні */
+}
+
+/* --- СТИЛІ ТЕКСТУ В ПІДВАЛІ --- */
+/* Треба підняти текст над міцелієм, щоб він читався */
+footer .container, footer p, footer a {
+    position: relative;
+    z-index: 2; /* Текст поверх сітки */
+}
+
+footer a {
+    color: #ffcc80; /* Легке золоте світіння посилань */
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-shadow 0.3s;
+}
+
+/* Ефект при наведенні мишки на посилання */
+footer a:hover {
+    text-shadow: 0 0 8px rgba(255, 204, 128, 0.8); /* Подвійне світіння */
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Для спрощення приховуємо меню на мобільному */
+    .hero h1 { font-size: 2rem; }
+}
+
+/* --- СОЦІАЛЬНІ МЕРЕЖІ В ПІДВАЛІ --- */
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center; /* Центруємо блок з іконками */
+    gap: 30px; /* Відстань між іконками */
+}
+
+.social-link {
+    font-size: 1.5rem; /* Робимо іконки трохи більшими */
+    transition: all 0.3s ease; /* Плавна анімація */
+    opacity: 0.8; /* Трохи прозорі спочатку */
+}
+
+/* Ефект при наведенні */
+.social-link:hover {
+    opacity: 1;
+    transform: scale(1.2); /* Збільшуються при наведенні */
+    text-shadow: 0 0 15px rgba(255, 204, 128, 1); /* Сильне золоте світіння */
+}
